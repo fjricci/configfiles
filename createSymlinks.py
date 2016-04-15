@@ -8,8 +8,9 @@ homedir = os.environ["HOME"]
 configdir = os.path.realpath(os.path.dirname(sys.argv[0]))
 
 links = {
-    ".vimrc" :  "vim/vimrc",
-    ".vim"   :  "vim/vim",
+    ".vimrc"             :  "vim/vimrc",
+    ".vim"               :  "vim/vim",
+    ".git-completion.sh" : "git/git-completion.sh",
 }
 
 def _conf_path(path):

@@ -24,7 +24,7 @@ def create_links():
         src = _conf_path(links[f])
 
         if os.access(dst, os.F_OK):
-            print("error, could not link %s" % dst)
+            print("could not link %s, skipping" % dst)
             continue
 
         print("linking  %s -> %s" % (dst, src))

@@ -7,7 +7,10 @@ import sys
 homedir = os.environ["HOME"]
 configdir = os.path.realpath(os.path.dirname(sys.argv[0]))
 
-links = {}
+links = {
+    ".vimrc" :  "vim/vimrc",
+    ".vim"   :  "vim/vim",
+}
 
 def _conf_path(path):
     return os.path.join(configdir, path)

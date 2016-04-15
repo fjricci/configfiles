@@ -1,0 +1,20 @@
+# Avoid duplicates
+export HISTCONTROL=ignoredups:erasedups  
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+
+# After each command, append to the history file and reread it
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+HISTSIZE=130000 HISTFILESIZE=-1
+
+source ~/.git-completion.sh
+
+# set the number of open files to be 1024
+ulimit -S -n 1024
+
+# Corrects last command if there's a typo
+eval "$(thefuck --alias)"
+
+# System specific config should go in .bashrc_local
+[[ -s ~/.bashrc_local ]] && source ~/.bashrc_local

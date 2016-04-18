@@ -10,6 +10,7 @@ configdir = os.path.realpath(os.path.dirname(sys.argv[0]))
 links = {
     ".bashrc"            : "bash/bashrc",
     ".git-completion.sh" : "git/git-completion.sh",
+    ".gitconfig"         : "git/gitconfig",
     ".vimrc"             : "vim/vimrc",
     ".vim"               : "vim/vim",
 }

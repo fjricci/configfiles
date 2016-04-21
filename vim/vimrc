@@ -39,3 +39,8 @@ for prefix in ['i', 'n', 'v']
     exe prefix . "noremap " . key . " <Nop>"
   endfor
 endfor
+
+" make sure color is enabled on ubuntu
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif

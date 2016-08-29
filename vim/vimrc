@@ -44,3 +44,6 @@ endfor
 if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
+
+" unhighlight the search results when the keyboard is idle
+autocmd CursorHold,CursorHoldI * nohls | redraw

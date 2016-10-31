@@ -47,6 +47,3 @@ endif
 
 " unhighlight the search results when the keyboard is idle
 autocmd CursorHold,CursorHoldI * nohls | redraw
-
-" Allow copy-paste without line numbers
-set mouse+=a

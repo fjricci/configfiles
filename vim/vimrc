@@ -47,3 +47,9 @@ endif
 
 " unhighlight the search results when the keyboard is idle
 autocmd CursorHold,CursorHoldI * nohls | redraw
+
+" map <Esc> to jk
+imap jk <Esc>
+
+" map ; to :
+nmap ; :

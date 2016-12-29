@@ -21,6 +21,7 @@ class LinkMaker:
         ".bashrc" + suffix: "bash/bashrc",
         ".gitconfig" + suffix: "git/gitconfig",
         ".vimrc" + suffix: "vim/vimrc",
+        ".ideavimrc" + suffix: "vim/ideavimrc",
     }
 
   def conf_path(self, path):

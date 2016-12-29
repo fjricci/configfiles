@@ -16,8 +16,5 @@ ulimit -S -n 1024
 # Corrects last command if there's a typo
 eval "$(thefuck --alias)"
 
-# System specific config should go in .bashrc_local
-[[ -s ~/.bashrc_local ]] && source ~/.bashrc_local
-
-export PATH=~/bin:~/devbin:~/devtools:$PATH:/opt/android_sdk/platform-tools
+export PATH=~/bin:~/devbin:~/devtools:$PATH
 export EDITOR="vim"

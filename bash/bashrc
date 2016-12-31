@@ -16,5 +16,5 @@ ulimit -S -n 1024
 # Corrects last command if there's a typo
 eval "$(thefuck --alias)"
 
-export PATH=~/bin:~/devbin:~/devtools:$PATH
+export PATH=~/bin:~/devbin:~/devtools:~/arcanist/bin:$PATH
 export EDITOR="vim"

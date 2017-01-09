@@ -1,1 +1,7 @@
-so ~/.ideavimrc_local
+" map <Esc> to jk
+imap jk <Esc>
+
+" map ; to :
+nmap ; :
+
+map == :action ReformatCode<CR>

@@ -16,6 +16,11 @@ ulimit -S -n 1024
 export PATH=~/bin:~/devbin:~/devtools:~/arcanist/bin:$PATH
 export EDITOR="vim"
 
+mkcd()
+{
+  mkdir -p "$@" && cd "$@"
+}
+
 # {{{ prompt
 _ps_retval_colour_f()
 {

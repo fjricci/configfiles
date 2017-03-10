@@ -58,3 +58,30 @@ nmap ; :
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+function! s:CLangFormatting()
+  " use C-like language indentation
+  set cindent
+  set cinoptions=:0,l1,g0,N-s,t0,(0,u0
+
+  " tweak comment leaders to align properly
+  set comments=sl:/*,mb:\ *,elx:\ */,://
+
+  " tweak include path handling
+  " TODO(compnerd) setup paths for windows
+  set path=.,/usr/local/include,/usr/include,,
+
+  " Use :GNUFormat to setup formatting behaviour amenable to GNU style
+  command! GNUFormat :setlocal cinoptions=>2s,n-1s,{s,^-1s,:1s,=1s,g0,h1s,t0,+1s,(0,u0,w1,m1 noexpandtab shiftwidth=2 softtabstop=2 tabstop=8
+
+  " Use :LLVMFormat to setup formatting behaviour amenable to LLVM style
+  command! LLVMFormat :setlocal cinoptions=:0,g0,(0,Ws,l1 expandtab shiftwidth=2 softtabstop=2 tabstop=8
+endfunction
+
+let s:CLangFileTypes = [ 'c', 'cpp', 'objc', 'objcpp', 'c.doxygen',
+                       \ 'cpp.doxygen', 'objc.doxygen', 'objcpp.doxygen' ]
+let s:CPlusPlusFileTypes = [ 'cpp', 'objcpp', 'cpp.doxygen', 'objcpp.doxygen' ]
+
+if has("autocmd")
+    execute "autocmd FileType " . join(s:CLangFileTypes, ",") . " call s:CLangFormatting()"
+endif

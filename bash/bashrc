@@ -13,8 +13,10 @@ source ~/.git-completion.sh
 # set the number of open files to be 1024
 ulimit -S -n 1024
 
-export PATH=~/bin:~/devbin:~/devtools:~/arcanist/bin:~/cmake/bin:$PATH
+export PATH=~/bin:~/devbin:~/devtools:~/cmake/bin:$PATH
 export EDITOR="vim"
+
+alias larc="~/arcanist/bin/arc"
 
 mkcd()
 {

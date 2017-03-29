@@ -13,6 +13,7 @@
         di = diff
         st = status
         sl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all --since='360 days ago'
+        sl2 = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all --since='360 days ago'
         summary = show  # if you're used to Mercurial
 [svn]
         followparent = true

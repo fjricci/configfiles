@@ -23,6 +23,12 @@ mkcd()
   mkdir -p "$@" && cd "$@"
 }
 
+clang-format-diff()
+{
+  cd ~/Source/llvm/build && ninja clang-format && cd - && \
+  git diff -U0 --no-color | ~/Source/llvm/tools/clang/tools/clang-format/clang-format-diff.py -v -p1 -binary ~/Source/llvm/build/bin/clang-format -i
+}
+
 # {{{ prompt
 _ps_retval_colour_f()
 {

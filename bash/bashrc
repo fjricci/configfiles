@@ -25,8 +25,13 @@ mkcd()
 
 clang-format-diff()
 {
-  cd ~/Source/llvm/build && ninja clang-format && cd - && \
-  git diff -U0 --no-color | ~/Source/llvm/tools/clang/tools/clang-format/clang-format-diff.py -v -p1 -binary ~/Source/llvm/build/bin/clang-format -i
+  clang_format_bin="/Users/fjricci/Source/llvm/build/bin/clang-format"
+
+  if [ ! -e $clang_format_bin ] ; then
+    cd ~/Source/llvm/build && ninja clang-format && cd -
+  fi
+
+  git diff HEAD^ -U0 --no-color | ~/Source/llvm/tools/clang/tools/clang-format/clang-format-diff.py -v -p1 -binary $clang_format_bin -i
 }
 
 # {{{ prompt

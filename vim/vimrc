@@ -26,9 +26,7 @@ set guioptions-=L
 set guioptions-=r
 set guioptions-=R
 
-set expandtab
-set sw=2
-set sts=2
+set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 colorscheme spacegray
 set ic

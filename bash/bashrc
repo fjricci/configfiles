@@ -38,7 +38,7 @@ clang-format-diff()
 _ps_retval_colour_f()
 {
   if [[ ${1} -eq 0 ]] ; then
-    echo -e "\033[01;34m"
+    echo -e "\033[01;32m"
   else
     echo -e "\033[01;31m"
   fi
@@ -46,5 +46,30 @@ _ps_retval_colour_f()
   return ${1}
 }
 
-export PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w \[$(_ps_retval_colour_f $?)\]$ \[\033[00;00m\]'
-# }}}
+# Crazy prompt things
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+lolcat_binary=~/.gem/ruby/2.4.0/bin/lolcat
+do_lolcat_thing() {
+  ESC=$(echo -e '\033')
+  SOH=$(echo -e '\001')
+  STX=$(echo -e '\002')
+  PS1_color_wrap='s/'$ESC'\\[[[:digit:];]*m/'$SOH'&'$STX'/g'
+
+  echo $(dirs -0) | $lolcat_binary -F 3 -p 25 -f - | sed $PS1_color_wrap
+
+  if [[ ${1} -ne 0 ]] ; then
+    false
+  fi
+}
+
+if [ -e $lolcat_binary ] ; then
+  export PS1='\[\033[01;34m\]\h \[$(do_lolcat_thing $?)\] \[$(_ps_retval_colour_f $?)\]$ \[\033[00;00m\]'
+else
+  export PS1='\[\033[01;32m\]\h \[\033[01;34m\]\w \[$(_ps_retval_colour_f $?)\]$ \[\033[00;00m\]'
+fi
+## }}}
+
+

@@ -25,7 +25,7 @@ mkcd()
 
 clang-format-diff()
 {
-  clang_format_bin="/Users/fjricci/Source/llvm/build/bin/clang-format"
+  clang_format_bin="$HOME/Source/llvm/build/bin/clang-format"
 
   if [ ! -e $clang_format_bin ] ; then
     cd ~/Source/llvm/build && ninja clang-format && cd -

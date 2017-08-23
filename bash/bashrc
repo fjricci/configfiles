@@ -30,7 +30,7 @@ clang-format-diff()
   clang_format_bin="$HOME/Source/llvm/build/bin/clang-format"
 
   if [ ! -e $clang_format_bin ] ; then
-    cd ~/Source/llvm/build && ninja clang-format && cd -
+    ninja -C ~/Source/llvm/build clang-format
   fi
 
   git diff HEAD^ -U0 --no-color | ~/Source/llvm/tools/clang/tools/clang-format/clang-format-diff.py -v -p1 -binary $clang_format_bin -i

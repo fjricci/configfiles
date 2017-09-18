@@ -44,7 +44,7 @@ class LinkMaker:
     os.symlink(src, dst)
 
   def create_links(self, file_to_link):
-    if file_to_link is not "all":
+    if not "all" in file_to_link:
       self.link_file(file_to_link)
       return
 

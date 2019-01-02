@@ -19,6 +19,7 @@ class LinkMaker:
         self.append_suffix(".gitconfig"): "git/gitconfig",
         self.append_suffix(".vimrc"): "vim/vimrc",
         self.append_suffix(".ideavimrc"): "vim/ideavimrc",
+        self.append_suffix(".tmux.conf"): "tmux/tmux.conf",
     }
 
   def append_suffix(self, string):

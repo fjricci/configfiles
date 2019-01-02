@@ -54,3 +54,5 @@ vim() {
     [ -t 1 ] || { echo "Not starting vim without stdout to TTY!" >&2; return 1; }
       command vim "$@"
 }
+
+alias tmux='tmux -2'

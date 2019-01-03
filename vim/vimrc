@@ -39,9 +39,10 @@ for prefix in ['i', 'n', 'v']
 endfor
 
 " make sure color is enabled on ubuntu
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
+" if $COLORTERM == 'gnome-terminal'
+"   set t_Co=256
+" endif
+set t_Co=256
 
 " unhighlight the search results when the keyboard is idle
 autocmd CursorHold,CursorHoldI * nohls | redraw
